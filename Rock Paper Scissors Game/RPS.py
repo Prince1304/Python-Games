@@ -2,9 +2,10 @@ import random
 
 class Game:
     score = 0
+
     def __init__(self):
         print("*" * 50)
-        print("Welcome To The Game")
+        print(f"{'Welcome To The Game':^50}")
         print("*" * 50)
         while True:
             print("1. Play The Game")
@@ -12,7 +13,12 @@ class Game:
             print("3. New Game")
             print("4. Quit")
             print("*" * 50)
-            choice = int(input("Enter your choice: "))
+            try:
+                choice = int(input("Enter your choice: "))
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+                continue
+
             if choice == 1:
                 self.play()
             elif choice == 2:
@@ -26,51 +32,43 @@ class Game:
                 break
 
     def play(self):
+        # Dictionary mapping for cleaner conversion
+        moves = {'1': '✊', '2': '✌️', '3': '✋'}
+        
+        # Rules: win[player_move] = what_it_beats
+        win_rules = {'1': '2', '2': '3', '3': '1'}
+
         while True:
-            Ai = random.choice('123')
-            Ai_res =''
-            if Ai == 1:
-                Ai_res ='✊'
-            elif Ai == 2:
-                Ai_res ='✌️'
-            elif Ai == 3:
-                Ai_res = '✋'
-            user = ''
             print("*" * 50)
-            choice = str(input("Please enter your Choice \n1.✊\n2.✌️\n3.✋\n): "))
-            user_res = ''
-            if choice == "1":
-                user = '1'
-                user_res = '✊'
-            elif choice == "2":
-                user = '️2️'
-                user_res = '✌️'
-            elif choice == "3":
-                user = '️3'
-                user_res = '✋'
-            elif choice == "q":
-                user = 'q'
-            print("Press q to Quit")
+            print("Press 'q' to return to Main Menu")
+            user = input("Please enter your Choice \n1.✊\n2.✌️\n3.✋\nChoice: ").strip().lower()
+
             if user == 'q':
-                print("Game Over!")
+                print("Returning to Main Menu...")
                 break
-            pattern = [Ai, user]
-            win = [['1', '3'], ['2', '1'], ['3', '2']]
-            print(pattern)
-            if Ai == user:
+            
+            if user not in ['1', '2', '3']:
+                print("Invalid choice! Please select 1, 2, 3, or q.")
+                continue
+
+            # Secure clean AI choices matching the user data type (strings)
+            ai = random.choice(['1', '2', '3'])
+
+            print(f"\nYou chose: {moves[user]}")
+            print(f"AI chose: {moves[ai]}")
+
+            if user == ai:
                 print("=" * 50)
                 print("Match Tie!")
                 print("=" * 50)
-            elif pattern not in win:
-                print("🏆"*15)
-                print(f"Ai Choose : {Ai_res}")
+            elif win_rules[user] == ai:
+                print("🏆" * 15)
                 print("Congratulations! You Won!")
                 print("🏆" * 15)
                 self.score += 100
             else:
                 print("*" * 50)
-                print("Opp's! You Lose!")
-                print(f"The Ai Choose {Ai_res}")
+                print("Oops! You Lose!")
                 print("*" * 50)
 
     def scores(self):
@@ -83,20 +81,21 @@ class Game:
         elif self.score == 500:
             print("Wow! you Won 5 Games!")
             print(f"Your Score: {self.score}")
-        elif self.score > 500:
+        elif 500 < self.score < 1000:
             print("Wow! you Won 5+ Games!")
             print(f"Your Score: {self.score}")
-        elif self.score >= 1000:
+        elif self.score == 1000:
             print("Wow! you Won 10 Games!")
             print(f"Your Score: {self.score}")
-        elif self.score > 1000:
+        else:  # score > 1000
             print("Wow! you Won 10+ Games!")
             print(f"Your Score: {self.score}")
         print("=" * 50)
 
     def newgame(self):
         self.score = 0
-        print("New Game Started!")
+        print("\nNew Game Started! Score reset to 0.")
         self.play()
 
-game = Game()
+if __name__ == "__main__":
+    game = Game()
