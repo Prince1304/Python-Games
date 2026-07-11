@@ -1,4 +1,4 @@
-# 🎮 Python Number Guessing Game
+# 🎮 Number Guessing Game
 
 A clean, robust, and interactive number guessing game written in Python. The computer picks a secret number between 1 and 10, and you have 5 attempts to guess it right with smart hints along the way!
 
