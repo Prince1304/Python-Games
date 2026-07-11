@@ -15,7 +15,7 @@ A clean, robust, and interactive number guessing game written in Python. The com
 2. Create a new file named guessing_game.py and paste the source code below into it.
 3. Open your terminal or command prompt, navigate to the folder, and run:
 ```
-python numberguess.py
+python NumGuess.py
 ```
 
 ---
