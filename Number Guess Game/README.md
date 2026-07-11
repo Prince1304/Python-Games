@@ -29,7 +29,7 @@ Wrong! 3 attempts left.
 Enter your guess: 7
 
 Hmm... what do you think? Are you right? 🤔
-*(3-second pause)*
+
 Yes, of course! Congratulations! You guessed the right number! 🎉
 ```
 
