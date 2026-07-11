@@ -32,3 +32,21 @@ Hmm... what do you think? Are you right? 🤔
 *(3-second pause)*
 Yes, of course! Congratulations! You guessed the right number! 🎉
 ```
+
+### Game Over Scenario:
+```text
+Welcome to the Guessing Game! I'm thinking of a number between 1 and 10.
+
+Enter your guess: abc
+Oops! Please enter a valid whole number.
+
+Enter your guess: 2
+Wrong! 4 attempts left.
+💡 Try a higher number.
+
+... [Skipping ahead to the final guess] ...
+
+Enter your guess: 4
+
+Game Over! Don't be upset, you'll get it next time. The number was 6.
+```
