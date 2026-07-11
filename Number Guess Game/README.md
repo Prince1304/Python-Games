@@ -10,6 +10,14 @@ A clean, robust, and interactive number guessing game written in Python. The com
 * **Crash Protection:** Safely handles cases where a user accidentally types text (e.g., "three") instead of a digit.
 * **Polished Mechanics:** Uses a `while` loop to accurately track remaining attempts.
 
+### 🚀 How to Run
+1. Make sure you have Python 3 installed on your computer.
+2. Create a new file named guessing_game.py and paste the source code below into it.
+3. Open your terminal or command prompt, navigate to the folder, and run:
+```
+python numberguess.py
+```
+
 ---
 
 ## 🖥️ How it Looks (Output View)
